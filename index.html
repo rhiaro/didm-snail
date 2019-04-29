@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>🐌 SnailMail DID Method Specification</title>
+    <meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
+    <!--
+      === NOTA BENE ===
+      For the three scripts below, if your spec resides on dev.w3 you can check them
+      out in the same tree and use relative links so that they'll work offline.
+     -->
+    <script src='https://www.w3.org/Tools/respec/respec-w3c-common' class='remove'></script>
+    <!--script src='./respec-w3c-common.js' class='remove'></script-->
+    <script src="./common.js"></script>
+    <script type="text/javascript" class="remove">
+      var respecConfig = {
+        // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
+        specStatus: "UNOFFICIAL",
+
+        // the specification's short name, as in http://www.w3.org/TR/short-name/
+        shortName: "didm-snail",
+
+        // subtitle
+        subtitle: "A decentralized identifier method for the Real World",
+
+        // if you wish the publication date to be other than today, set this
+        // publishDate:  "2009-08-06",
+
+        // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
+        // and its maturity status
+        // previousPublishDate:  "1977-03-15",
+        // previousMaturity:  "WD",
+
+        // extend the bibliography entries
+        localBiblio: ccg.localBiblio,
+
+        github: "https://github.com/rhiaro/didm-snail",
+        includePermalinks: false,
+
+        // if there a publicly available Editor's Draft, this is the link
+        edDraftURI: "https://rhiaro.github.io/didm-snail/",
+
+        // if this is a LCWD, uncomment and set the end of its review period
+        // lcEnd: "2009-08-05",
+
+        // editors, add as many as you like
+        // only "name" is required
+        editors: [
+            { name: "Amy Guy", url: "https://rhiaro.co.uk" },
+            { name: "Yancy Ribbens" }
+        ],
+
+        // name of the WG
+        //wg:           "Credentials Community Group",
+
+        // URI of the public WG page
+        //wgURI:        "https://www.w3.org/community/credentials/",
+
+        // name (with the @w3c.org) of the public mailing to which comments are due
+        //wgPublicList: "public-credentials",
+
+        // URI of the patent status for this WG, for Rec-track documents
+        // !!!! IMPORTANT !!!!
+        // This is important for Rec-track documents, do not copy a patent URI from a random
+        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+        // Team Contact.
+        wgPatentURI:  "https://www.w3.org/community/about/agreements/cla/",
+        maxTocLevel: 4,
+        inlineCSS: true
+      };
+    </script>
+  </head>
+  <body>
+    <section id='abstract'>
+      <p>
+
+      </p>
+    </section>
+
+    <section id='sotd'>
+    </section>
+
+    <section>
+      <h1>Introduction</h1>
+
+      <p>
+Current work on DID Method specifications depends on technical solutions,
+much of which involves things we don't understand and can't be bothered to learn.
+We believe DID Methods should be inclusive, as well as resistant to the
+inevitable impending robot apocalypse.
+The SnailMail DID Method presents an alternative, for those who find communicating
+with old fashioned postal systems to be just fine, as well as those who just
+enjoy the pleasure of letter-writing.
+      </p>
+
+    </section>
+
+    <section>
+        <h1>SnailMail Identifiers</h1>
+        <p>
+The namestring that shall identify this DID method is: <code>snail</code>.
+        </p>
+        <p>
+A DID that uses this method MUST begin with the following prefix:
+<code>did:snail</code>. Per the DID specification, this string MUST be in
+lowercase. The remainder of the DID, after the prefix, is a globally unique
+identifier based on an IRL address.
+        </p>
+
+        <section>
+            <h2>Prerequisites</h2>
+            <p>
+This DID method assumes you already have a place to live. If you don't, please
+consult wikipedia or legal counsel regarding your local regulations about
+purchasing, renting or squatting land and buildings and get somewhere to live
+before proceeding.
+            </p>
+        </section>
+
+        <section>
+            <h2>Generating the identifier</h2>
+            <p>
+The <code>snail</code> identifier portion is generated from your IRL address.
+To generate, perform the following steps:
+            </p>
+            <ol>
+                <li>
+Write down the details of where you live, starting from the most general to the
+most specific. You SHOULD also include any country- or region-specific codes,
+such as postal or zip codes. The last line SHOULD be your name.
+                </li>
+                <li>
+Replace spaces with the <code>+</code> character.
+                </li>
+                <li>
+Replace line breaks with a <code>_</code> character.
+                </li>
+                <li>
+Append this string to <code>did:snail:</code>.
+                </li>
+            </ol>
+            <p>
+Globally unique IRL addresses are not case-sensitive, and capitalization MAY be
+used to help with readability.
+            </p>
+            <p>
+For example, if you are the Queen of England you would use:
+            </p>
+
+            <pre>
+did:snail:Planet+Earth_Europe_United+Kingdom_SW1A1AA_London_Spur+Road_Buckingham+Palace_HM+The+Queen
+            </pre>
+
+            <p>
+To serialize a <code>snail</code> identifier into an IRL address, essentially
+perform the generation steps in reverse:
+            </p>
+
+            <ol>
+                <li>
+Take the portion of the DID after <code>did:snail:</code>.
+                </li>
+                <li>
+Break it up into lines by replacing the <code>_</code> characters with line
+breaks.
+                </li>
+                <li>
+Replace all <code>+</code> characters with spaces.
+                </li>
+                <li>
+Reverse the order of the lines.
+                </li>
+            </ol>
+
+            <p class="note">
+A quick check to see if your identifier is correctly formed is to write the
+serialized form on an envelope, and attach an appropriately priced stamp.
+You MAY put something in the envelope, but that is not necessary. Put the
+envelope in a postbox, and wait several days. If the envelope eventually returns
+to you, your globally unique IRL address is correct. If the envelope does not
+return, your address was malformed, or the post office lost the letter. Try
+again just in case.
+            </p>
+
+            <p class="issue" title="Centralized delivery system">
+Relies on a centralized mail delivery system like a national post office.
+Consider alternatives like passing the letter between people who know each other
+until it arrives at its intended destination?
+            </p>
+
+            <p class="issue" title="Valid duplicate DIDs?">
+What if two people with the same name live at the same address?
+            </p>
+        </section>
+    </section>
+    <section>
+        <h1>Operations</h1>
+
+        <section>
+            <h2>Create</h2>
+            <p>
+Once you have generated a SnailMail DID from your address, you also need a DID
+Document. Take your favourite kind of paper - it can be anything, blank, lined,
+squared, coloured, recycled, thick or thin. It is RECOMMENDED to use A4 size
+paper. The paper MAY be US Letter size, but really what kind of proportions is
+that? The paper SHOULD not be larger than A2 because this is hard to cram into
+sensibly sized envelopes.
+            </p>
+            <p>
+Write out your DID Document according to the data model in the [[DID-SPEC]]. Include
+properties from the [[DID-SPEC]], and any other metadata you deem suitable. You MAY
+type it out and print it onto your paper, you MAY hand write it in pen or pencil
+or crayon, you MAY use finger painting or cut out and glue small pieces of paper.
+Express yourself however you like. You SHOULD NOT use glitter or food.
+            </p>
+            <p class="issue" title="Interpretive dance">
+Can DID Documents be expressed in interpretive dance? Probably not because this
+can't be sent through the postal service. Maybe make a new DID Method for this?
+            </p>
+            <p>
+You SHOULD store your DID Document somewhere, but where is out of scope. It could
+be in a safe, framed on the wall, in a filing cabinet, or amongst a stack of
+other stuff on your desk.
+            </p>
+        </section>
+        <section>
+            <h2>Read</h2>
+            <p>
+To resolve a <code>snail</code> DID, carry out the following steps:
+            </p>
+            <ol>
+                <li>
+Serialize the DID into the IRL address format, according to the algorithm
+above.
+                </li>
+                <li>
+Write the serialized DID on an envelope.
+                </li>
+                <li>
+Purchase a stamp; what kind of stamp depends on the IRL region you are and the
+IRL region of the DID. Affix the stamp to the top right hand corner of the
+envelope.
+                </li>
+                <li>
+Write the following on a slip of paper: "Please send me your DID Document."
+                    <ul>
+                        <li>
+You MAY write the message in any natural language. If you know the native
+language of the DID Subject, you SHOULD use that language.
+                        </li>
+                        <li>
+You MAY repeat the message using multiple natural languages.
+                         </li>
+                        <li>
+You MAY include pleasant greetings or thanks or otherwise express appreciation
+at the end of the message.
+                         </li>
+                        <li>
+You MUST NOT write anything mean.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+Sign the paper, with your signature, an analogue one, with a pen.
+                </li>
+                <li>
+Take a second envelope. On it, write your own SnailMail DID, serialized into
+IRL address format according to the algorithm above, and also attach an
+appropriate stamp.
+                </li>
+                <li>
+Place the signed paper, and the stamped addressed envelope, into the first
+envelope, and seal.
+                </li>
+                <li>
+Post the envelope according to your local mail delivery service.
+                </li>
+                <li>
+Wait. Check your own post box every day. Look out for the stamped addressed
+envelope you sent out.
+                </li>
+                <li>
+Eventually you will receive a response from the DID Subject. The response MAY be:
+                    <ul>
+                        <li>
+A photocopy of the DID Document you requested.
+                        </li>
+                        <li>
+A handwritten copy of the DID Document you requested.
+                        </li>
+                        <li>
+A polite note explaining why you're not authorized to read the DID Document you
+requested.
+                        </li>
+                        <li>
+A rude note explaining why you're not authorized to read the DID Document you
+requested.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+Verify the response by checking the analogue signature. Does it look legit?
+Probably fine.
+                </li>
+            </ol>
+            <p>
+The DID Subject also has a part to play in the resolution process. Upon receipt
+of a polite note requesting a copy of your DID Document:
+            </p>
+            <ol>
+                <li>
+You MUST verify the request has been signed. Does it look legit? Probably fine.
+                </li>
+                <li>
+If the request came from someone you trust to send a copy of your DID Document
+to, or you just don't care:
+                    <ol>
+                        <li>
+Make a copy of your DID Document. You MAY do this any way you like; write it out
+in crayon, photocopy it, take a polaroid, whatever is convenient. You SHOULD NOT
+use etch-a-sketch as the quality may degrade if it is shaken in transit.
+                        </li>
+                        <li>
+You MUST sign the copy of your DID Document (with a pen). You MUST include the
+date the copy was made, in ISO 8601 format. You MAY include any additional
+metadata, polite notes or in-jokes along with the DID Document.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+If you don't want to send of a copy of the DID Document for whatever reason:
+                    <ol>
+                        <li>
+Write note explaining why. You MAY include HTTP status codes or memes as
+appropriate.
+                        </li>
+                        <li>
+You MUST sign the note, and include an ISO 8601 date of when you wrote the note.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+Take the stamped addressed envelope that was included as part of the request,
+and place the copy of your DID Document or rejection note as appropriate inside.
+                </li>
+                <li>
+Post the envelope according to your local mail delivery service.
+                </li>
+            </ol>
+        </section>
+        <section>
+            <h2>Update</h2>
+            <p>
+If you wish to update your DID Document, just update it. Maybe you move house, and want to add a `forwardingAddress` property so people know your new DID. You can scribble out the parts you want to change, write it out again with changes and destroy the original, or use tippex or masking tape or any other kind of erasing technology.
+            </p>
+            <p>
+If someone else tries to update your DID Document, you MAY help them, or tell them no, depending on whether you like their ideas or not.
+            </p>
+            <p>
+You MUST include the updated date in ISO 8601 format, and initial or do a really small signature, beside the updates.
+            </p>
+        </section>
+        <section>
+            <h2>Deactivate</h2>
+            <p>
+You may wish to deactive your DID if you abandon society to live in the woods,
+are the victim of structural inequality which renders you homeless, or shuffle
+off this mortal coil. To do so:
+            </p>
+            <ol>
+                <li>
+Take your paper DID Document in two hands. You MAY involve teeth, furniture, or
+hands of a trusted friend.
+                </li>
+                <li>
+Tear the DID Document into tiny pieces.
+                </li>
+                <li>
+You MAY additionally set the pieces on fire or scatter them to the winds.
+                </li>
+            </ol>
+
+            <p class="issue" title="Paper shredders">
+    Consider option to use a paper shredder. Is using something powered by
+    electricity unsustainable? Is a paper shredder with a hand crank okay?
+            </p>
+
+        </section>
+    </section>
+
+    <section>
+        <h1>Authentication</h1>
+        <p>
+Authentication is performed through analogue signatures. Sign your DID Document
+so people know it is from you. Sign your requests for DID Documents too. Sign
+everything. Signatures are good enough for the US banking system, they're good
+enough for SnailMail DIDs.
+        </p>
+    </section>
+
+    <section>
+        <h1>Authorization</h1>
+        <p>
+You are the physical holder of your DID Document, so you get to decide who is
+authorized to update or deactivate it. Just decide. It's up to you.
+        </p>
+    </section>
+
+    <section>
+        <h1>Privacy Considerations</h1>
+        <p>
+When you try to read a DID Document, you reveal your own DID in the process
+(in order to get the DID Document posted back to you). If this is a problem,
+consider creating a new SnailMail DID using a fake name, a PO Box, or your
+friend's address.
+        </p>
+    </section>
+
+    <section>
+        <h1>Security Considerations</h1>
+        <p>
+You should employ appropriate security (like lock your doors) in order to
+prevent your DID Document from being stolen or modified or damaged by attackers.
+If malicious parties also live in your house, you should take steps to prevent
+them from accessing it, like putting it on a high shelf or obfuscate it in a
+folder labelled 'taxes'.
+        </p>
+        <p>
+A SnailMail DID includes personally identifiable information (your real world
+address). This means people can find out where you live just from your DID. This
+DID Method is not for you if you're worried about creeps showing up at your
+house. Mitigation mechanisms include building walls, moats, employing private
+security, or only leaving your house in disguise or through secret tunnels.
+        </p>
+        <p class="issue" title="MITM attacks">
+The post being intercepted? Why do people send money and valuable goods through
+the post if this is a serious concern?
+        </p>
+    </section>
+
+  </body>
+</html>
