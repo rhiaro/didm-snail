@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>🐌 SnailMail DID Method Specification</title>
+    <title>🐌 SnailMail DID method Specification</title>
     <meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
     <!--
       === NOTA BENE ===
@@ -86,11 +86,11 @@
       <h1>Introduction</h1>
 
       <p>
-Current work on DID Method specifications depends on technical solutions,
+Current work on DID method specifications depends on technical solutions,
 much of which involves things we don't understand and can't be bothered to learn.
-We believe DID Methods should be inclusive, as well as resistant to the
+We believe DID methods should be inclusive, as well as resistant to the
 inevitable impending robot apocalypse.
-The SnailMail DID Method presents an alternative, for those who find communicating
+The SnailMail DID method presents an alternative, for those who find communicating
 with old fashioned postal systems to be just fine, as well as those who just
 enjoy the pleasure of letter-writing.
       </p>
@@ -208,8 +208,8 @@ that? The paper SHOULD not be larger than A2 because this is hard to cram into
 sensibly sized envelopes.
             </p>
             <p>
-Write out your DID Document according to the data model in the [[DID-SPEC]]. Include
-properties from the [[DID-SPEC]], and any other metadata you deem suitable. You MAY
+Write out your DID document according to the data model in [[DID-CORE]]. Include
+properties from [[DID-CORE]], and any other metadata you deem suitable. You MAY
 type it out and print it onto your paper, you MAY hand write it in pen or pencil
 or crayon, you MAY use finger painting or cut out and glue small pieces of paper.
 Express yourself however you like. You SHOULD NOT use glitter or food.
@@ -217,7 +217,7 @@ Express yourself however you like. You SHOULD NOT use glitter or food.
             <p class="issue" data-number="8">
             </p>
             <p>
-You SHOULD store your DID Document somewhere, but where is out of scope. It could
+You SHOULD store your DID document somewhere, but where is out of scope. It could
 be in a safe, framed on the wall, in a filing cabinet, or amongst a stack of
 other stuff on your desk.
             </p>
@@ -241,7 +241,7 @@ IRL region of the DID. Affix the stamp to the top right hand corner of the
 envelope.
                 </li>
                 <li>
-Write the following on a slip of paper: "Please send me your DID Document."
+Write the following on a slip of paper: "Please send me your DID document."
                     <ul>
                         <li>
 You MAY write the message in any natural language. If you know the native
@@ -285,17 +285,17 @@ envelope you sent out.
 Eventually you will receive a response from the DID Subject. The response MAY be:
                     <ul>
                         <li>
-A photocopy of the DID Document you requested.
+A photocopy of the DID document you requested.
                         </li>
                         <li>
-A handwritten copy of the DID Document you requested.
+A handwritten copy of the DID document you requested.
                         </li>
                         <li>
-A polite note explaining why you're not authorized to read the DID Document you
+A polite note explaining why you're not authorized to read the DID document you
 requested.
                         </li>
                         <li>
-A rude note explaining why you're not authorized to read the DID Document you
+A rude note explaining why you're not authorized to read the DID document you
 requested.
                         </li>
                     </ul>
@@ -307,30 +307,30 @@ Probably fine.
             </ol>
             <p>
 The DID Subject also has a part to play in the resolution process. Upon receipt
-of a polite note requesting a copy of your DID Document:
+of a polite note requesting a copy of your DID document:
             </p>
             <ol>
                 <li>
 You MUST verify the request has been signed. Does it look legit? Probably fine.
                 </li>
                 <li>
-If the request came from someone you trust to send a copy of your DID Document
+If the request came from someone you trust to send a copy of your DID document
 to, or you just don't care:
                     <ol>
                         <li>
-Make a copy of your DID Document. You MAY do this any way you like; write it out
+Make a copy of your DID document. You MAY do this any way you like; write it out
 in crayon, photocopy it, take a polaroid, whatever is convenient. You SHOULD NOT
 use etch-a-sketch as the quality may degrade if it is shaken in transit.
                         </li>
                         <li>
-You MUST sign the copy of your DID Document (with a pen or a wax seal). You MUST 
+You MUST sign the copy of your DID document (with a pen or a wax seal). You MUST 
 include the date the copy was made, in ISO 8601 format. You MAY include any 
-additional metadata, polite notes or in-jokes along with the DID Document.
+additional metadata, polite notes or in-jokes along with the DID document.
                         </li>
                     </ol>
                 </li>
                 <li>
-If you don't want to send of a copy of the DID Document for whatever reason:
+If you don't want to send of a copy of the DID document for whatever reason:
                     <ol>
                         <li>
 Write note explaining why. You MAY include HTTP status codes or memes as
@@ -343,7 +343,7 @@ You MUST sign the note, and include an ISO 8601 date of when you wrote the note.
                 </li>
                 <li>
 Take the return addressed envelope that was included as part of the request,
-and place the copy of your DID Document or rejection note as appropriate inside.
+and place the copy of your DID document or rejection note as appropriate inside.
                 </li>
                 <li>
 If the envelope was not stamped by the sender, affix an appropriate stamp
@@ -357,10 +357,10 @@ Post the envelope according to your local mail delivery service.
         <section>
             <h2>Update</h2>
             <p>
-If you wish to update your DID Document, just update it. Maybe you move house, and want to add a `forwardingAddress` property so people know your new DID. You can scribble out the parts you want to change, write it out again with changes and destroy the original, or use tippex or masking tape or any other kind of erasing technology.
+If you wish to update your DID document, just update it. Maybe you move house, and want to add a `forwardingAddress` property so people know your new DID. You can scribble out the parts you want to change, write it out again with changes and destroy the original, or use tippex or masking tape or any other kind of erasing technology.
             </p>
             <p>
-If someone else tries to update your DID Document, you MAY help them, or tell them no, depending on whether you like their ideas or not.
+If someone else tries to update your DID document, you MAY help them, or tell them no, depending on whether you like their ideas or not.
             </p>
             <p>
 You MUST include the updated date in ISO 8601 format, and initial or do a really small signature, beside the updates.
@@ -375,11 +375,11 @@ off this mortal coil. To do so:
             </p>
             <ol>
                 <li>
-Take your paper DID Document in two hands. You MAY involve teeth, furniture, or
+Take your paper DID document in two hands. You MAY involve teeth, furniture, or
 hands of a trusted friend.
                 </li>
                 <li>
-Tear the DID Document into tiny pieces.
+Tear the DID document into tiny pieces.
                 </li>
                 <li>
 You MAY additionally set the pieces on fire or scatter them to the winds.
@@ -395,8 +395,8 @@ You MAY additionally set the pieces on fire or scatter them to the winds.
     <section>
         <h1>Authentication</h1>
         <p>
-Authentication is performed through analogue signatures. Sign your DID Document
-so people know it is from you. Sign your requests for DID Documents too. Sign
+Authentication is performed through analogue signatures. Sign your DID document
+so people know it is from you. Sign your requests for DID documents too. Sign
 everything. Signatures are good enough for the US banking system, they're good
 enough for SnailMail DIDs.
         </p>
@@ -405,7 +405,7 @@ enough for SnailMail DIDs.
     <section>
         <h1>Authorization</h1>
         <p>
-You are the physical holder of your DID Document, so you get to decide who is
+You are the physical holder of your DID document, so you get to decide who is
 authorized to update or deactivate it. Just decide. It's up to you.
         </p>
     </section>
@@ -413,8 +413,8 @@ authorized to update or deactivate it. Just decide. It's up to you.
     <section>
         <h1>Privacy Considerations</h1>
         <p>
-When you try to read a DID Document, you reveal your own DID in the process
-(in order to get the DID Document posted back to you). If this is a problem,
+When you try to read a DID document, you reveal your own DID in the process
+(in order to get the DID document posted back to you). If this is a problem,
 consider creating a new SnailMail DID using a fake name, a PO Box, or your
 friend's address.
         </p>
@@ -424,7 +424,7 @@ friend's address.
         <h1>Security Considerations</h1>
         <p>
 You should employ appropriate security (like lock your doors) in order to
-prevent your DID Document from being stolen or modified or damaged by attackers.
+prevent your DID document from being stolen or modified or damaged by attackers.
 If malicious parties also live in your house, you should take steps to prevent
 them from accessing it, like putting it on a high shelf or obfuscate it in a
 folder labelled 'taxes'.
@@ -432,7 +432,7 @@ folder labelled 'taxes'.
         <p>
 A SnailMail DID includes personally identifiable information (your real world
 address). This means people can find out where you live just from your DID. This
-DID Method is not for you if you're worried about creeps showing up at your
+DID method is not for you if you're worried about creeps showing up at your
 house. Mitigation mechanisms include building walls, moats, employing private
 security, or only leaving your house in disguise or through secret tunnels.
         </p>
